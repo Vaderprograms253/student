@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <label for="sid">SID
+    <input id="sid" type="text">
+      <button id="student">Submit</button>
+  </label>
+
+<div id="result"></div>
+
+<script src="//code.jquery.com/jquery.js"></script>
+
+<script>
+    $("#sid").on("blur", function ()
+    {
+       // alert("Hello");
+        var sid = $("#sid").val();
+        $.post('student.php', {sid:sid}, function (result){
+            $('result').html(result);
+        });
+    });
+
+</script>
+</body>
+</html>
